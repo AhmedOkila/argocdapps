@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-app1-app2
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: eapp1.ahmedokila.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: app1-nginx-clusterip-service
+                port: 
+                  number: 80
+    - host: eapp2.ahmedokila.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: app2-nginx-clusterip-service
+                port: 
+                  number: 80                                                           
+                     
